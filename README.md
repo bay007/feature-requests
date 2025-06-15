@@ -105,6 +105,80 @@ All models use UUID fields as primary keys for enhanced security and scalability
 - **Vote on Features**: Click the thumbs-up icon to vote (or remove your vote)
 - **Comment on Features**: Click on a feature to view details and add comments
 
+## Docker Compose Setup
+
+### Prerequisites
+- Docker
+- Docker Compose
+
+### Running with Docker Compose
+
+1. Create a `docker-compose.yml` file in the project root:
+```yaml
+version: '3.8'
+services:
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  web:
+    build: .
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env.dev
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
+```
+
+2. Set up your environment variables:
+```bash
+cp .env.dev.example .env.dev
+# Edit .env.dev with your database settings
+# Make sure POSTGRES_HOST=db in .env.dev to match the service name
+```
+
+3. Build and start the services:
+```bash
+docker compose up --build
+```
+
+4. Create a superuser (in a new terminal):
+```bash
+docker compose exec web python manage.py createsuperuser
+```
+
+5. Access the application at http://localhost:8000/
+
+To stop the services:
+```bash
+docker compose down
+```
+
+To stop the services and remove all data (including database):
+```bash
+docker compose down -v
+```
+
 ## Administration
 
 Access the admin interface at http://127.0.0.1:8000/adminkarmp2/ to manage features, votes, and comments.
