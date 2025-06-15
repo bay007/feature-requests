@@ -1,11 +1,11 @@
 {% extends 'feature_requests/base.html' %}
 
-{% block title %}Feature Requests - Home{% endblock %}
+{% block title %}Solicitudes de Funcionalidades - Inicio{% endblock %}
 
 {% block content %}
 <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
     <div class="md:col-span-8">
-        <h1 class="text-3xl font-bold mb-6 slide-in">Feature Requests</h1>
+        <h1 class="text-3xl font-bold mb-6 slide-in">Solicitudes de Funcionalidades</h1>
         
         {% if features %}
             <div class="space-y-6">
@@ -39,7 +39,7 @@
                     <div class="flex justify-between items-center mt-4">
                         <span class="text-sm text-gray-500">{{ feature.created_at|date:"M d, Y" }}</span>
                         <a href="{% url 'feature_detail' feature_id=feature.id %}" class="text-blue-500 hover:text-blue-700 font-medium text-sm transition duration-300">
-                            View Comments
+                            Ver Comentarios
                         </a>
                     </div>
                 </div>
@@ -47,9 +47,9 @@
             </div>
         {% else %}
             <div class="bg-white rounded-lg shadow-md p-6 text-center fade-in">
-                <p class="text-gray-600 mb-4">No feature requests yet!</p>
+                <p class="text-gray-600 mb-4">¡Aún no hay solicitudes de funcionalidades!</p>
                 <a href="{% url 'create_feature' %}" class="bg-blue-600 text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700 transition duration-300 inline-block">
-                    Be the first to create one
+                    Sé el primero en crear una
                 </a>
             </div>
         {% endif %}
@@ -57,7 +57,7 @@
     
     <div class="md:col-span-4">
         <div class="bg-white rounded-lg shadow-md p-6 mb-6 slide-in" style="animation-delay: 200ms">
-            <h2 class="text-xl font-semibold mb-4">Submit a New Feature</h2>
+            <h2 class="text-xl font-semibold mb-4">Enviar una Nueva Funcionalidad</h2>
             <form action="{% url 'create_feature' %}" method="post">
                 {% csrf_token %}
                 
@@ -87,16 +87,16 @@
                 
                 <div class="text-right">
                     <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700 transition duration-300">
-                        Submit Feature
+                        Enviar Funcionalidad
                     </button>
                 </div>
             </form>
         </div>
         
         <div class="bg-blue-50 rounded-lg border border-blue-200 p-6 slide-in" style="animation-delay: 300ms">
-            <h3 class="text-lg font-semibold mb-2 text-blue-800">About Feature Requests</h3>
+            <h3 class="text-lg font-semibold mb-2 text-blue-800">Acerca de las Solicitudes de Funcionalidades</h3>
             <p class="text-blue-700">
-                This platform allows you to submit feature ideas and vote for ones you'd like to see implemented. Your feedback helps us prioritize development efforts!
+                Esta plataforma te permite enviar ideas para funcionalidades y votar por las que te gustaría ver implementadas. ¡Tu opinión nos ayuda a priorizar los esfuerzos de desarrollo!
             </p>
         </div>
     </div>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Feature Requests{% endblock %}</title>
+    <title>{% block title %}Solicitudes de Funcionalidades{% endblock %}</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
         @keyframes fadeIn {
@@ -49,9 +49,9 @@
     <header class="bg-blue-600 text-white shadow-md">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
-                <a href="{% url 'index' %}" class="text-2xl font-bold hover:text-blue-200 transition duration-300">Feature Requests</a>
+                <a href="{% url 'index' %}" class="text-2xl font-bold hover:text-blue-200 transition duration-300">Solicitudes de Funcionalidades</a>
                 <a href="{% url 'create_feature' %}" class="bg-white text-blue-600 px-4 py-2 rounded-md font-medium hover:bg-blue-100 transition duration-300 pulse-on-hover">
-                    New Feature
+                    Nueva Funcionalidad
                 </a>
             </div>
         </div>
@@ -73,7 +73,7 @@
 
     <footer class="bg-gray-800 text-gray-300 py-6 mt-auto">
         <div class="container mx-auto px-4 text-center">
-            <p>© {% now "Y" %} Feature Requests - Submit and vote for your favorite features!</p>
+            <p>© {% now "Y" %} Solicitudes de Funcionalidades - ¡Envía y vota por tus funcionalidades favoritas!</p>
         </div>
     </footer>
 </body>

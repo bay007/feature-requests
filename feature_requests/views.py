@@ -55,7 +55,7 @@ def create_feature(request):
         form = FeatureForm(request.POST)
         if form.is_valid():
             feature = form.save()
-            messages.success(request, 'Your feature request has been submitted successfully!')
+            messages.success(request, '¡Tu solicitud de funcionalidad ha sido enviada con éxito!')
             return redirect('feature_detail', feature_id=feature.id)
     else:
         form = FeatureForm()
@@ -82,7 +82,7 @@ def feature_detail(request, feature_id):
             comment.feature = feature
             comment.user_cookie = user_cookie
             comment.save()
-            messages.success(request, 'Your comment has been added!')
+            messages.success(request, '¡Tu comentario ha sido añadido!')
             return redirect('feature_detail', feature_id=feature.id)
     
     context = {
@@ -115,15 +115,15 @@ def vote_feature(request, feature_id):
     if has_voted:
         # Remove the vote
         Vote.objects.filter(feature=feature, user_cookie=user_cookie).delete()
-        messages.success(request, 'Your vote has been removed!')
+        messages.success(request, '¡Tu voto ha sido eliminado!')
     else:
         # Add the vote
         try:
             Vote.objects.create(feature=feature, user_cookie=user_cookie)
-            messages.success(request, 'Thank you for your vote! Feel free to suggest more features.')
+            messages.success(request, '¡Gracias por tu voto! Siéntete libre de sugerir más funcionalidades.')
         except IntegrityError:
             # This shouldn't happen with our checks, but just in case
-            messages.error(request, 'You have already voted for this feature.')
+            messages.error(request, 'Ya has votado por esta funcionalidad.')
     
     # Redirect back to the referring page
     next_page = request.POST.get('next', 'index')
