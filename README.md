@@ -53,6 +53,7 @@ For production:
   - POSTGRES_PASSWORD
   - POSTGRES_HOST
   - POSTGRES_PORT
+  - ALLOWED_HOSTS (comma-separated list of allowed domains, e.g. 'features.aiba.mx,localhost')
 
 3. Install required packages:
 ```bash
@@ -123,6 +124,8 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_PORT: ${POSTGRES_PORT:-5432}
+      ALLOWED_HOSTS: ${ALLOWED_HOSTS:-localhost}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
