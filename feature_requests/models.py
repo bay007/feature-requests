@@ -1,3 +1,5 @@
+import uuid
+
 from django.db import models
 
 
@@ -12,6 +14,7 @@ class TimestampModel(models.Model):
 
 class Feature(TimestampModel):
     """Model for feature requests."""
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=200)
     description = models.TextField()
     additional_context = models.TextField(blank=True, null=True)
@@ -30,6 +33,7 @@ class Feature(TimestampModel):
 
 class Vote(TimestampModel):
     """Model for votes on feature requests."""
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     feature = models.ForeignKey(Feature, related_name='votes', on_delete=models.CASCADE)
     user_cookie = models.CharField(max_length=64)  # Store a unique identifier for anonymous users
     
