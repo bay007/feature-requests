@@ -8,7 +8,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 111.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
         </svg>
-        Volver a Funcionalidades
+        Volver a Sugerencias
     </a>
     
     <div class="bg-white rounded-lg shadow-lg p-8 mb-8 fade-in">
@@ -51,7 +51,7 @@
         </div>
         
         <div class="mt-8 text-gray-500 text-sm">
-            Enviado el {{ feature.created_at|date:"F d, Y" }} a las {{ feature.created_at|time:"H:i" }}
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock w-4 h-4 mr-1" data-lov-id="src/components/FeatureCard.tsx:40:12" data-lov-name="Clock" data-component-path="src/components/FeatureCard.tsx" data-component-line="40" data-component-file="FeatureCard.tsx" data-component-name="Clock" data-component-content="%7B%22className%22%3A%22w-4%20h-4%20mr-1%22%7D"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> {{ feature.created_at|date:"F d, Y" }} a las {{ feature.created_at|time:"H:i" }}
         </div>
     </div>
     
@@ -82,7 +82,7 @@
             <div class="bg-gray-50 rounded-lg p-4 slide-in" style="animation-delay: {{ forloop.counter0 }}00ms">
                 <div class="text-gray-800">{{ comment.content|linebreaks }}</div>
                 <div class="mt-2 text-sm text-gray-500">
-                    Publicado el {{ comment.created_at|date:"M d, Y" }} a las {{ comment.created_at|time:"H:i" }}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock w-4 h-4 mr-1" data-lov-id="src/components/FeatureCard.tsx:40:12" data-lov-name="Clock" data-component-path="src/components/FeatureCard.tsx" data-component-line="40" data-component-file="FeatureCard.tsx" data-component-name="Clock" data-component-content="%7B%22className%22%3A%22w-4%20h-4%20mr-1%22%7D"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> {{ comment.created_at|date:"M d, Y" }} a las {{ comment.created_at|time:"H:i" }}
                 </div>
             </div>
             {% endfor %}

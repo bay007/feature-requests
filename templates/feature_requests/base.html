@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}Solicitudes de Funcionalidades{% endblock %}</title>
+    <title>{% block title %}Sugerencias{% endblock %}</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <style>
@@ -125,7 +125,7 @@
             href="{% url 'create_feature' %}"
             class="bg-purple text-white px-4 py-4 rounded-md font-medium hover:bg-purple hover:text-white transition duration-300 pulse-on-hover"
           >
-            + Nueva Funcionalidad
+            + Nueva Sugerencia
           </a>
         </div>
       </div>
@@ -151,7 +151,7 @@
     <footer class="bg-gray-800 text-gray-300 py-6 mt-auto">
       <div class="container mx-auto px-4 text-center">
         <p>
-          © {% now "Y" %} Solicitudes de Funcionalidades - ¡Envía y vota por tus
+          © {% now "Y" %} Solicitudes - ¡Envía y vota por tus
           funcionalidades favoritas!
         </p>
       </div>
