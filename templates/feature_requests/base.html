@@ -1,80 +1,160 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}Solicitudes de Funcionalidades{% endblock %}</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
     <style>
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+      body {
+        color: #094067 !important;
+      }
+
+      .shadow-md {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+      }
+
+      .text-purple {
+        color: #5f16e0 !important;
+      }
+
+      .purple {
+        background-color: #5f16e0 !important;
+      }
+
+      .bg-purple {
+        display: inline-block;
+        background-color: #5f16e0 !important;
+        padding: 5px 5px;
+        border-radius: 12px;
+      }
+
+      .bg-green {
+        display: inline-block;
+        background-color: #45d72a !important;
+        padding: 5px 5px;
+        border-radius: 12px;
+      }
+
+      .text-green {
+        color: #45d72a !important;
+      }
+
+      .text-3_5xl {
+        font-size: 2rem;
+        line-height: 2.375rem;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
         }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
-        
-        .fade-in {
-            animation: fadeIn 0.5s ease-out forwards;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
         }
-        
-        .pulse-on-hover:hover {
-            animation: pulse 0.5s ease-in-out infinite;
+        50% {
+          transform: scale(1.05);
         }
-        
-        .slide-in {
-            opacity: 0;
-            transform: translateX(-20px);
-            animation: slideIn 0.5s ease-out forwards;
+      }
+
+      .fade-in {
+        animation: fadeIn 0.5s ease-out forwards;
+      }
+
+      .pulse-on-hover:hover {
+        animation: pulse 0.5s ease-in-out infinite;
+      }
+
+      .slide-in {
+        opacity: 0;
+        transform: translateX(-20px);
+        animation: slideIn 0.5s ease-out forwards;
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateX(-20px);
         }
-        
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-20px); }
-            to { opacity: 1; transform: translateX(0); }
+        to {
+          opacity: 1;
+          transform: translateX(0);
         }
-        
-        .message-animation {
-            animation: fadeIn 0.5s ease-out forwards, fadeOut 0.5s ease-in forwards 4s;
+      }
+
+      .message-animation {
+        animation: fadeIn 0.5s ease-out forwards,
+          fadeOut 0.5s ease-in forwards 4s;
+      }
+
+      @keyframes fadeOut {
+        from {
+          opacity: 1;
         }
-        
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
+        to {
+          opacity: 0;
         }
+      }
     </style>
-</head>
-<body class="bg-gray-50 min-h-screen">
-    <header class="bg-blue-600 text-white shadow-md">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <a href="{% url 'index' %}" class="text-2xl font-bold hover:text-blue-200 transition duration-300">Solicitudes de Funcionalidades</a>
-                <a href="{% url 'create_feature' %}" class="bg-white text-blue-600 px-4 py-2 rounded-md font-medium hover:bg-blue-100 transition duration-300 pulse-on-hover">
-                    Nueva Funcionalidad
-                </a>
-            </div>
+  </head>
+  <body class="bg-gray-50 min-h-screen">
+    <header class=" text-white shadow-md">
+      <div class="container mx-auto px-4 py-4">
+        <div class="flex justify-between items-center">
+          <a
+            href="{% url 'index' %}"
+            class="my-1 text-2xl font-bold hover:text-purple transition duration-300"
+          >
+            <img
+              src="https://aiba.mx/images/aiba-white-bg.png"
+              alt="aiba"
+              class="h-6 md:h-8"
+            />
+          </a>
+          <a
+            href="{% url 'create_feature' %}"
+            class="bg-purple text-white px-4 py-4 rounded-md font-medium hover:bg-purple hover:text-white transition duration-300 pulse-on-hover"
+          >
+            + Nueva Funcionalidad
+          </a>
         </div>
+      </div>
     </header>
 
     {% if messages %}
     <div class="messages container mx-auto px-4 mt-4">
-        {% for message in messages %}
-        <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-3 rounded shadow message-animation" role="alert">
-            {{ message }}
-        </div>
-        {% endfor %}
+      {% for message in messages %}
+      <div
+        class="bg-green border-l-4 border-green-500 text-green-700 p-4 mb-3 rounded shadow message-animation"
+        role="alert"
+      >
+        {{ message }}
+      </div>
+      {% endfor %}
     </div>
     {% endif %}
 
-    <main class="container mx-auto px-4 py-8">
-        {% block content %}{% endblock %}
+    <main class="container mx-auto px-4 py-8 min-h-[90vh]">
+      {% block content %}{% endblock %}
     </main>
 
     <footer class="bg-gray-800 text-gray-300 py-6 mt-auto">
-        <div class="container mx-auto px-4 text-center">
-            <p>© {% now "Y" %} Solicitudes de Funcionalidades - ¡Envía y vota por tus funcionalidades favoritas!</p>
-        </div>
+      <div class="container mx-auto px-4 text-center">
+        <p>
+          © {% now "Y" %} Solicitudes de Funcionalidades - ¡Envía y vota por tus
+          funcionalidades favoritas!
+        </p>
+      </div>
     </footer>
-</body>
+  </body>
 </html>

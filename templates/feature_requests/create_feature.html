@@ -5,8 +5,8 @@
 {% block content %}
 <div class="max-w-2xl mx-auto fade-in">
     <div class="flex items-center justify-between mb-8">
-        <h1 class="text-3xl font-bold">Enviar una Solicitud de Funcionalidad</h1>
-        <a href="{% url 'index' %}" class="text-blue-600 hover:text-blue-800 font-medium transition duration-300">
+        <h1 class="text-3xl font-bold text-purple">Enviar una Solicitud de Funcionalidad</h1>
+        <a href="{% url 'index' %}" class="text-purple hover:text-green font-medium transition duration-300">
             Volver a Funcionalidades
         </a>
     </div>
@@ -20,7 +20,7 @@
             {% csrf_token %}
             
             <div class="mb-6">
-                <label for="{{ form.title.id_for_label }}" class="block text-gray-700 font-medium mb-2">{{ form.title.label }}</label>
+                <label for="{{ form.title.id_for_label }}" class="block text-purple font-medium mb-2">{{ form.title.label }}</label>
                 {{ form.title }}
                 {% if form.title.errors %}
                 <p class="text-red-500 text-sm mt-1">{{ form.title.errors.0 }}</p>
@@ -28,7 +28,7 @@
             </div>
             
             <div class="mb-6">
-                <label for="{{ form.description.id_for_label }}" class="block text-gray-700 font-medium mb-2">{{ form.description.label }}</label>
+                <label for="{{ form.description.id_for_label }}" class="block text-purple font-medium mb-2">{{ form.description.label }}</label>
                 {{ form.description }}
                 <p class="text-sm text-gray-500 mt-1">Explica tu funcionalidad en detalle. ¿Qué problema resuelve?</p>
                 {% if form.description.errors %}
@@ -37,7 +37,7 @@
             </div>
             
             <div class="mb-8">
-                <label for="{{ form.additional_context.id_for_label }}" class="block text-gray-700 font-medium mb-2">{{ form.additional_context.label }}</label>
+                <label for="{{ form.additional_context.id_for_label }}" class="block text-purple font-medium mb-2">{{ form.additional_context.label }}</label>
                 {{ form.additional_context }}
                 <p class="text-sm text-gray-500 mt-1">Incluye cualquier información adicional, casos de uso o ejemplos.</p>
                 {% if form.additional_context.errors %}
@@ -46,7 +46,7 @@
             </div>
             
             <div class="flex justify-end">
-                <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700 transition duration-300 transform hover:scale-105">
+                <button type="submit" class="bg-purple text-white px-6 py-6 rounded-md font-medium hover:bg-green transition duration-300 transform hover:scale-105">
                     Enviar Funcionalidad
                 </button>
             </div>
