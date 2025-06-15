@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Feature Requests{% endblock %}</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        
+        .pulse-on-hover:hover {
+            animation: pulse 0.5s ease-in-out infinite;
+        }
+        
+        .slide-in {
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: slideIn 0.5s ease-out forwards;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .message-animation {
+            animation: fadeIn 0.5s ease-out forwards, fadeOut 0.5s ease-in forwards 4s;
+        }
+        
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <header class="bg-blue-600 text-white shadow-md">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="{% url 'index' %}" class="text-2xl font-bold hover:text-blue-200 transition duration-300">Feature Requests</a>
+                <a href="{% url 'create_feature' %}" class="bg-white text-blue-600 px-4 py-2 rounded-md font-medium hover:bg-blue-100 transition duration-300 pulse-on-hover">
+                    New Feature
+                </a>
+            </div>
+        </div>
+    </header>
+
+    {% if messages %}
+    <div class="messages container mx-auto px-4 mt-4">
+        {% for message in messages %}
+        <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-3 rounded shadow message-animation" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <main class="container mx-auto px-4 py-8">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300 py-6 mt-auto">
+        <div class="container mx-auto px-4 text-center">
+            <p>© {% now "Y" %} Feature Requests - Submit and vote for your favorite features!</p>
+        </div>
+    </footer>
+</body>
+</html>
