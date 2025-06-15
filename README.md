@@ -107,4 +107,4 @@ All models use UUID fields as primary keys for enhanced security and scalability
 
 ## Administration
 
-Access the admin interface at http://127.0.0.1:8000/admin/ to manage features, votes, and comments.
+Access the admin interface at http://127.0.0.1:8000/adminkarmp2/ to manage features, votes, and comments.

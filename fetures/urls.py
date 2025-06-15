@@ -19,6 +19,6 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    path("adminkarmp2/", admin.site.urls),
     path("", include('feature_requests.urls')),
 ]
