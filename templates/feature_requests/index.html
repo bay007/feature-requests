@@ -48,7 +48,7 @@
             </div>
         {% else %}
             <div class="bg-white rounded-lg shadow-md p-6 text-center fade-in">
-                <p class="text-gray-600 mb-4">¡Aún no hay solicitudes!</p>
+                <p class="text-gray-600 mb-4">¡Aún no hay Sugerencias!</p>
                 <a href="{% url 'create_feature' %}" class="bg-purple text-white px-4 py-2 rounded-md font-medium hover:bg-green transition duration-300 inline-block">
                     Sé el primero en crear una
                 </a>
@@ -87,8 +87,12 @@
                 </div>
                 
                 <div class="text-right">
-                    <button type="submit" class="bg-purple text-white p-12 rounded-md font-medium hover:bg-green transition duration-300 flex align-items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send w-4 h-4" data-lov-id="src/components/AddFeatureForm.tsx:100:16" data-lov-name="Send" data-component-path="src/components/AddFeatureForm.tsx" data-component-line="100" data-component-file="AddFeatureForm.tsx" data-component-name="Send" data-component-content="%7B%22className%22%3A%22w-4%20h-4%22%7D"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg> Enviar Sugerencia
+                    <button type="submit" class="bg-purple text-white p-12 rounded-md font-medium hover:bg-green transition duration-300 flex align-items-center justify-center" style="
+                        display: flex;
+                        align-items: center;
+                    ">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send w-4 h-4" data-lov-id="src/components/AddFeatureForm.tsx:100:16" data-lov-name="Send" data-component-path="src/components/AddFeatureForm.tsx" data-component-line="100" data-component-file="AddFeatureForm.tsx" data-component-name="Send" data-component-content="%7B%22className%22%3A%22w-4%20h-4%22%7D" style="margin: 10px 10px;"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg>
+                        <span>Enviar Sugerencia</span>
                     </button>
                 </div>
             </form>
