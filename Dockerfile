@@ -16,8 +16,8 @@ RUN pip install --no-cache-dir -r requirements.txt gunicorn uvicorn
 # Copy project
 COPY . .
 
-# Collect static files (if needed, uncomment next line)
-# RUN python manage.py collectstatic --noinput
+# Collect static files
+RUN python manage.py collectstatic --noinput
 
 # Expose port (default Django port)
 EXPOSE 8000
