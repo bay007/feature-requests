@@ -37,6 +37,10 @@ DEBUG = os.getenv('DEBUG', 'True').lower() == 'true'
 # Allow hosts from environment variable ALLOWED_HOSTS as comma-separated list
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
+CSRF_TRUSTED_ORIGINS = ['https://features.aiba.mx']
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
 
 # Application definition
 
