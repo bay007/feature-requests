@@ -82,7 +82,7 @@ def feature_detail(request, feature_id):
             comment.feature = feature
             comment.user_cookie = user_cookie
             comment.save()
-            messages.success(request, '¡Tu comentario ha sido añadido!')
+            messages.success(request, '¡Gracias por tu comentario!')
             return redirect('feature_detail', feature_id=feature.id)
     
     context = {
@@ -115,7 +115,7 @@ def vote_feature(request, feature_id):
     if has_voted:
         # Remove the vote
         Vote.objects.filter(feature=feature, user_cookie=user_cookie).delete()
-        messages.success(request, '¡Tu voto ha sido eliminado!')
+        messages.success(request, '¡Has quitado tu voto!')
     else:
         # Add the vote
         try:
