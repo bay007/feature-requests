@@ -55,7 +55,7 @@ def create_feature(request):
         form = FeatureForm(request.POST)
         if form.is_valid():
             feature = form.save()
-            messages.success(request, '¡Tu solicitud de funcionalidad ha sido enviada con éxito!')
+            messages.success(request, '¡Infinitas gracias!')
             return redirect('feature_detail', feature_id=feature.id)
     else:
         form = FeatureForm()
